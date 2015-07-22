@@ -1,0 +1,12 @@
+{
+  "name": "simple_server",
+  "version": "1.0.0",
+  "description": "A very simple HTTP Web Server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Greg Cosgrove",
+  "license": "GPL"
+}

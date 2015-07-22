@@ -17,15 +17,15 @@ var mimeTypes = {
 
 // Create Server
 // process.cwd returns current working directory of the process
-http.createServer(function(){
+http.createServer(function(req, res){
   var uri = url.parse(req.url).pathname;
-  var fileName = path.join(process.cwd().unescape(uri));
+  var fileName = path.join(process.cwd(),unescape(uri));
   console.log('Loading ' + uri);
   var stats;
 
   try{
     stats = fs.lstatSync(fileName);
-  } catch {
+  } catch(e) {
     res.writeHead(404, {'Content-type' : 'text/plain'});
     res.write('404 Not Found\n');
     res.end();
@@ -45,7 +45,7 @@ http.createServer(function(){
     });
     res.end();
   } else {
-    res.writeHead(500. {'Content-type' : 'text/plain'});
+    res.writeHead(500, {'Content-type' : 'text/plain'});
     res.write('500 Internal Error\n');
     res.end();
   }
